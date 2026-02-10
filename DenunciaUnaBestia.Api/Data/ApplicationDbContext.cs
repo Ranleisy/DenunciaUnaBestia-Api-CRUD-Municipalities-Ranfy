@@ -10,5 +10,5 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<Municipality> Municipalities { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 }

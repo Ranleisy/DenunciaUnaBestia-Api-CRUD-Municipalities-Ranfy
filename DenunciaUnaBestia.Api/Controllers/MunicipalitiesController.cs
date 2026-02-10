@@ -72,9 +72,31 @@ public class MunicipalitiesController : ControllerBase
 
         return CreatedAtAction(nameof(GetById), new { id = entity.Id }, responseDto);
     }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] CreateMunicipalityDto dto)
+    {
+        var entity = await _context.Municipalities.FindAsync(id);
+        if (entity == null) return NotFound();
+
+        if (string.IsNullOrWhiteSpace(dto.Name))
+            return BadRequest("El nombre del municipio es obligatorio.");
+
+        entity.Name = dto.Name;
+        entity.PostalCode = dto.PostalCode;
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var entity = await _context.Municipalities.FindAsync(id);
+        if (entity == null) return NotFound();
+
+        _context.Municipalities.Remove(entity);
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 }
-
-
-
-
-

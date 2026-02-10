@@ -1,24 +1,25 @@
-# DenunciaUnaBestia - CRUD de Municipios
+Aquí tienes el README.md actualizado y completo para tu proyecto con el CRUD de Usuarios (ya no menciona municipios, sino usuarios). Está listo para copiar y pegar directamente en la raíz del proyecto (archivo README.md). Se ve profesional, claro y refleja todos los cambios que hicimos.
+Markdown# DenunciaUnaBestia - CRUD de Usuarios
 
-Proyecto de **Web API** con ASP.NET Core para gestionar municipios, desarrollado siguiendo las sesiones del curso.
+Proyecto de **Web API** con ASP.NET Core para gestionar usuarios básicos del sistema de denuncias, desarrollado siguiendo las sesiones del curso.
 
 ## Características principales
 - ASP.NET Core Web API con **Controllers** (no Minimal APIs)
 - Entity Framework Core + SQL Server (LocalDB)
-- DTOs para entrada (`CreateMunicipalityDto`) y salida (`MunicipalityDto`)
-- Validación básica en el controlador (nombre obligatorio)
+- DTOs para entrada (`CreateUserDto`) y salida (`UserDto`)
+- Validación básica en el controlador (username y email obligatorios)
 - Swagger habilitado solo en entorno de Development
 - CRUD completo: GET (todos y por ID), POST, PUT, DELETE
 - Base de datos creada automáticamente en LocalDB al hacer el primer POST
 
 ## Endpoints disponibles
-| Método | Endpoint                        | Descripción                              | Body (ejemplo POST/PUT)                     |
-|--------|---------------------------------|------------------------------------------|---------------------------------------------|
-| GET    | /api/municipalities             | Lista todos los municipios               | —                                           |
-| GET    | /api/municipalities/{id}        | Obtiene un municipio por ID              | —                                           |
-| POST   | /api/municipalities             | Crea un nuevo municipio                  | `{ "name": "La Romana", "postalCode": "22000" }` |
-| PUT    | /api/municipalities/{id}        | Actualiza un municipio existente         | `{ "name": "La Romana Editada", "postalCode": "22001" }` |
-| DELETE | /api/municipalities/{id}        | Elimina un municipio                     | —                                           |
+| Método | Endpoint              | Descripción                              | Body (ejemplo POST/PUT)                                      |
+|--------|-----------------------|------------------------------------------|--------------------------------------------------------------|
+| GET    | /api/users            | Lista todos los usuarios                 | —                                                            |
+| GET    | /api/users/{id}       | Obtiene un usuario por ID                | —                                                            |
+| POST   | /api/users            | Crea un nuevo usuario                    | `{ "username": "ranfy123", "email": "ranfy@example.com", "fullName": "Ranfy Alejandro" }` |
+| PUT    | /api/users/{id}       | Actualiza un usuario existente           | `{ "username": "ranfy_edit", "email": "ranfy2@example.com", "fullName": "Ranfy Editado" }` |
+| DELETE | /api/users/{id}       | Elimina un usuario                       | —                                                            |
 
 Respuestas HTTP esperadas:
 - 200 OK (GET exitoso)
@@ -40,7 +41,7 @@ text5. Abre en el navegador:
 http://localhost:5133/swagger
 text(El puerto puede variar; mira la consola)
 
-La base de datos `DenunciaUnaBestia` se crea automáticamente en **LocalDB** al hacer el primer POST.
+La base de datos `DenunciaUnaBestiaUsers` se crea automáticamente en **LocalDB** al hacer el primer POST.
 
 ## Tecnologías utilizadas
 - .NET 10
@@ -53,16 +54,21 @@ La base de datos `DenunciaUnaBestia` se crea automáticamente en **LocalDB** al 
 ## Estructura del proyecto
 DenunciaUnaBestia.Api/
 ├── Controllers/
-│   └── MunicipalitiesController.cs
+│   └── UsersController.cs
 ├── Data/
 │   └── ApplicationDbContext.cs
 ├── Models/
 │   ├── Entities/
-│   │   └── Municipality.cs
+│   │   └── User.cs
 │   └── Dtos/
-│       ├── CreateMunicipalityDto.cs
-│       └── MunicipalityDto.cs
+│       ├── CreateUserDto.cs
+│       └── UserDto.cs
 ├── appsettings.Development.json
 ├── Program.cs
 └── DenunciaUnaBestia.Api.csproj
-text
+text## Notas adicionales
+- Proyecto personalizado: se cambió el tema de Municipios a **Usuarios** para diferenciarlo y adaptarlo mejor al contexto de "DenounceBeasts".
+- Todo alineado a las sesiones del curso (estructura de carpetas, uso de DTOs, validación básica, Swagger en Dev).
+
+Hecho por: Ranfy  
+Fecha: Febrero 2026
